@@ -22,10 +22,21 @@ end
 
 gem 'jquery-rails'
 
+
+#rspecをインストールする。
+group :test,:development do
+  gem "rspec-rails"
+  gem "factory_girl_rails"
+  gem "rails3-generators"
+end
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
+#    gem " To use Jbuilder templates for JSON
+#    endu" To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
 # Use unicorn as the app server
