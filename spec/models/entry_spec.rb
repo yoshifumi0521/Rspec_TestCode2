@@ -32,7 +32,30 @@ describe Entry do
 
   end
 
+  describe Entry,"#posted_onが入力された場合" do
+    fixtures :blogs
 
+    before do 
+      @posted_on = Date.today - 10
+      @entry = Entry.new(
+        :blog => blogs(:kakutani),
+        :title => "タイトル",
+        :body => "本文",
+        :posted_on => @posted_on
+      )
+      @entry.save
+      p @posted_on
+    end
+
+    it "入力された日付が投稿日であること" do
+      @entry.posted_on.should == @posted_on
+    end
+
+
+
+
+
+  end
 
 
 

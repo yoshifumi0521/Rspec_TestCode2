@@ -1,6 +1,6 @@
 #coding: utf-8
 class Entry < ActiveRecord::Base
-  attr_accessible :title, :body,:blog
+  attr_accessible :title, :body,:blog,:posted_on
 
   #これで、EntryモデルからBlogモデル参照できる。@entry.blogのような処理が可能になる
   belongs_to :blog
@@ -9,7 +9,7 @@ class Entry < ActiveRecord::Base
   before_save :fill_posted_on
 
   def fill_posted_on 
-    self.posted_on = Date.today
+    self.posted_on ||= Date.today
   end
 
 
