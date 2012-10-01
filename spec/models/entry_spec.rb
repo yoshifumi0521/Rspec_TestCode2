@@ -14,7 +14,23 @@ describe Entry do
     @entry.blog.should == blogs(:kakutani)
   end
 
+  describe Entry, "#posted_onが入力されずに保存された場合" do
+    fixtures :blogs
+    before do
+      @entry = Entry.new(
+        :blog => blogs(:kakutani),
+        :title => "タイトル",
+        :body => "本文"
+      )
+      @entry.save
+      p @entry
+    end
 
+    it "Entryの作成日は投稿日であること" do
+      @entry.posted_on.should == Date.today
+    end
+
+  end
 
 
 

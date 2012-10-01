@@ -20,8 +20,19 @@ describe Blog do
     @blog.should have_at_least(2).entries
   end
 
+  it "記事の件数が1件増えること" do
+    #lambraをつかって、オブジェクトの変化をテストする。
+    lambda{
+      #entryモデルのデータをデータベースにいれる
+      @blog.entries.create(
+        :title => "new_post",
+        :body => "hello",
+        :posted_on => Date.today
+      ).should change(Entry,:count).by(1)
+    }
+  end
 
-
+  
 
 
 end
