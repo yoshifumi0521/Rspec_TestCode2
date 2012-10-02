@@ -1,4 +1,8 @@
 RspecTestcode2::Application.routes.draw do
+
+  #blogs/showをすると、blogsコントローラーのshowアクションが実行される。
+  get "blogs/show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
